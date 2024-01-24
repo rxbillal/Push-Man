@@ -23,10 +23,10 @@ Any user can visit this website. After login user can view which course he/she s
 
 You can simply run the project by following process
 ```shell
-$ git clone https://github.com/rxbillal/Zkteco-Machine-integrate-System-Laravel
+$ git clone https://github.com/rxbillal/Push-Man
 ```
 ```shell
-$ cd Zkteco-Machine-integrate-System-Laravel
+$ cd Push-Man
 ```
 ```shell
 $ composer install

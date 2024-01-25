@@ -99,73 +99,7 @@
             </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script>
-            jQuery(function($) {
-                $('#alert').fadeIn(1500);
-                $('#alert').fadeOut (1500);
-                $('#alert').fadeIn (1500);
-                $('#alert').fadeIn(1500);
-                $('#alert').fadeOut (1500);
-                $('#alert').fadeIn(500);
-                $('#alert').delay (2500);
-                $('#alert').fadeOut (2000);
-            })
-        </script>
-        <script>
-            function startTime() {
-              const today = new Date();
-              let h = today.getHours();
-              let m = today.getMinutes();
-              let s = today.getSeconds();
-              m = checkTime(m);
-              s = checkTime(s);
-              document.getElementById('txt').innerHTML = "Time : " +h + ":" + m + ":" + s;
-              setTimeout(startTime, 1000);
-            }
 
-            function checkTime(i) {
-              if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-              return i;
-            }
-        </script>
-
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement(
-                    {pageLanguage: 'en'},
-                    'google_translate_element'
-                );
-            }
-        </script>
-
-        <script type="text/javascript"
-                src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-        </script>
-        <style>
-            body{
-                top: 0px !important;
-                position: static !important;
-            }
-            .goog-te-banner-frame{
-                display:none !important
-            }
-            .goog-te-combo{
-                width: 100%;
-                height: 40px;
-                border-radius: 5px;
-            }
-            .goog-te-gadget {
-                color: #040f1c00;
-            }
-            .goog-logo-link, .goog-logo-link:link, .goog-logo-link:visited, .goog-logo-link:hover, .goog-logo-link:active {
-             font-size: 12px;
-             font-weight: bold;
-             color: #040f1c00;
-             text-decoration: none;
-             visibility: hidden;
-            }
-        </style>
 
 
     </body>

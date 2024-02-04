@@ -9,71 +9,80 @@
     <!-- Sale & Revenue Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-line fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total User</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-area fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today User</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
+            <div class="col-sm-12 col-xl-12">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Device Information</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Information</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Device IP</td>
+                            <td>{{ $deviceip }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Device Name</td>
+                            <td>{{ $devicedeviceName }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Device Version</td>
+                            <td>{{ $deviceVersion }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Device OS Version</td>
+                            <td>{{ $deviceOSVersion }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">5</th>
+                            <td>Device Platform</td>
+                            <td>{{ $devicePlatform }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">6</th>
+                            <td>Device Fm Version</td>
+                            <td>{{ $devicefmVersion }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">7</th>
+                            <td>Device Work Code</td>
+                            <td>{{ $deviceworkCode }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">8</th>
+                            <td>Device SSR</td>
+                            <td>{{ $devicessr }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">9</th>
+                            <td>Device Epin Width</td>
+                            <td>{{ $devicepinWidth }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">10</th>
+                            <td>Device Serial Number</td>
+                            <td>{{ $deviceserialNumber }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">11</th>
+                            <td>Device Time</td>
+                            <td>{{ $devicegetTime }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>
     </div>
     <!-- Sale & Revenue End -->
-
-
-    <!-- Sales Chart Start -->
-    {{-- <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
-            <div class="col-sm-12 col-xl-6">
-                <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Worldwide Sales</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <canvas id="worldwide-sales"></canvas>
-                </div>
-            </div>
-            <div class="col-sm-12 col-xl-6">
-                <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Salse & Revenue</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <canvas id="salse-revenue"></canvas>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Sales Chart End -->
 
 
     <!-- Recent Sales Start -->

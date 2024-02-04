@@ -61,43 +61,43 @@
             <hr/>
             <div class="ml-12">
                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                    <table class="table table-bordered table-responsive">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">UID</th>
-                            <th scope="col">User ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">Card No</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                            $sl=1;
-                            @endphp
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">UID</th>
+                                <th scope="col">User ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Card No</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $sl=1;
+                                @endphp
 
-                          @foreach($users as $user)
-                          <tr>
-                            <th scope="row">{{ $sl++ }}</th>
-                            <td>{{ $user['uid'] }}</td>
-                            <td>{{ $user['userid'] }}</td>
-                            <td>{{ $user['name'] }}</td>
-                            <td>{{ $user['role'] }}</td>
-                            <td>{{ $user['password'] }}</td>
-                            <td>{{ $user['cardno'] }}</td>
-                            <td>
-                                <a class="btn btn-success btn-sm" href="{{ route('machine.deviceviewusersingle',$user) }}">
-                                    View</a>
-                                <a class="btn btn-success btn-sm" href="{{ route('machine.deviceremoveusersingle',$user['uid']) }}">
-                                Delete</a>
-                            </td>
-                          </tr>
-                          @endforeach
-                        </tbody>
-                      </table>
+                            @foreach($users as $user)
+                            <tr>
+                                <th scope="row">{{ $sl++ }}</th>
+                                <td>{{ $user['uid'] }}</td>
+                                <td>{{ $user['userid'] }}</td>
+                                <td>{{ $user['name'] }}</td>
+                                <td>{{ $user['role'] }}</td>
+                                <td>{{ $user['password'] }}</td>
+                                <td>{{ $user['cardno'] }}</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="{{ route('machine.deviceviewusersingle',$user) }}">
+                                        View</a>
+                                    <a class="btn btn-success btn-sm" href="{{ route('machine.deviceremoveusersingle',$user['uid']) }}">
+                                    Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                 </div>
             </div>
 

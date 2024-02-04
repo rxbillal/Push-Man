@@ -44,39 +44,35 @@ class MachineController extends Controller
         return redirect()->back()->with('success_message','Playing sound on device.');
     }
 
-    public function device_information()
-    {
-        $deviceip = $this->device_ip();
-        $zk = new ZKTeco($deviceip,4370);
+    public function device_information(){
+
+        $data['deviceip'] = $this->device_ip();
+        $zk = new ZKTeco($data['deviceip'],4370);
         $zk->connect();
         $zk->disableDevice();
-        $deviceVersion = $zk->version();
-        $deviceOSVersion = $zk->osVersion();
-        $devicePlatform = $zk->platform();
-        $devicefmVersion = $zk->fmVersion();
-        $deviceworkCode = $zk->workCode();
-        $devicessr = $zk->ssr();
-        $devicepinWidth = $zk->pinWidth();
-        $deviceserialNumber = $zk->serialNumber();
-        $devicedeviceName = $zk->deviceName();
-        $devicegetTime = $zk->getTime();
-        return view('device.device-information',compact(
-            'deviceip','deviceVersion','deviceOSVersion','devicePlatform','devicefmVersion','deviceworkCode',
-            'devicessr','devicepinWidth','deviceserialNumber','devicedeviceName','devicegetTime',
-        ));
+        $data['deviceVersion']      = $zk->version();
+        $data['deviceOSVersion']    = $zk->osVersion();
+        $data['devicePlatform']     = $zk->platform();
+        $data['devicefmVersion']    = $zk->fmVersion();
+        $data['deviceworkCode']     = $zk->workCode();
+        $data['devicessr']          = $zk->ssr();
+        $data['devicepinWidth']     = $zk->pinWidth();
+        $data['deviceserialNumber'] = $zk->serialNumber();
+        $data['devicedeviceName']   = $zk->deviceName();
+        $data['devicegetTime']      = $zk->getTime();
+
+        return view('dashboard.device-information',$data);
     }
 
     public function device_data()
     {
-        $deviceip = $this->device_ip();
-        $zk = new ZKTeco($deviceip,4370);
+        $data['deviceip'] = $this->device_ip();
+        $zk = new ZKTeco($data['deviceip'],4370);
         $zk->connect();
         $zk->disableDevice();
-        $users = $zk->getUser();
-        $attendaces = $zk->getAttendance();
-        return view('device.device-data',compact(
-            'deviceip','users','attendaces',
-        ));
+        $data['users'] = $zk->getUser();
+        $data['attendaces'] = $zk->getAttendance();
+        return view('dashboard.device-data',$data);
     }
     public function device_data_clear_attendance()
     {
@@ -117,7 +113,7 @@ class MachineController extends Controller
     public function device_adduser()
     {
         $deviceip = $this->device_ip();
-        return view('device.device-adduser',compact('deviceip'));
+        return view('dashboard.device-adduser',compact('deviceip'));
     }
 
     public function device_setuser(Request $request)

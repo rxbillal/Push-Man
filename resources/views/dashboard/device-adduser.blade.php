@@ -7,73 +7,71 @@
     <!-- Navbar End -->
 
     <!-- Sale & Revenue Start -->
-    <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-line fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total User</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-area fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today User</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total</p>
-                        <h6 class="mb-0">$1234</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Sale & Revenue End -->
-
-
-    <!-- Sales Chart Start -->
     {{-- <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
-            <div class="col-sm-12 col-xl-6">
-                <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Worldwide Sales</h6>
-                        <a href="">Show All</a>
+            <div class="col-sm-12 col-xl-12">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Add User</h6>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                          <form action="{{ route('machine.devicesetuser') }}" method="post">
+                            @csrf
+                          <div class="row">
+                            <div class="col-3">
+                                UID :
+                            </div>
+                            <div class="col-9">
+                                <input type="text" name="uid" class="form-control" required/>
+                            </div>
+                            <br/><br/>
+                            <div class="col-3">
+                                User ID :
+                            </div>
+                            <div class="col-9">
+                                <input type="text" name="userid" class="form-control" required/>
+                            </div>
+                            <br/><br/>
+                            <div class="col-3">
+                                Name :
+                            </div>
+                            <div class="col-9">
+                                <input type="text" name="name" class="form-control" required/>
+                            </div>
+                            <br/><br/>
+                            <div class="col-3">
+                                Role :
+                            </div>
+                            <div class="col-9">
+                                <input type="text" name="role" class="form-control" required/>
+                            </div>
+                            <br/><br/>
+                            <div class="col-3">
+                                Password :
+                            </div>
+                            <div class="col-9">
+                                <input type="text" name="password" class="form-control" />
+                            </div>
+                            <br/><br/>
+                            <div class="col-3">
+                                Card No :
+                            </div>
+                            <div class="col-9">
+                                <input type="text" name="cardno" class="form-control" required/>
+                            </div>
+                            <br/><br/><br/>
+                            <div class="col-3"></div>
+                            <div class="col-9">
+                                <button type="submit" class="btn btn-success" style="width: 100%">Submit</button>
+                            </div>
+                          </div>
+                          </form>
+                        </div>
                     </div>
-                    <canvas id="worldwide-sales"></canvas>
-                </div>
-            </div>
-            <div class="col-sm-12 col-xl-6">
-                <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Salse & Revenue</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <canvas id="salse-revenue"></canvas>
                 </div>
             </div>
         </div>
     </div> --}}
-    <!-- Sales Chart End -->
+    <!-- Sale & Revenue End -->
 
 
     <!-- Recent Sales Start -->
@@ -81,7 +79,10 @@
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Recent</h6>
-                <a href="">Show All</a>
+
+                <button type="button" class="btn btn-info rounded-pill m-2">
+                    <a href="{{ url('device-adduser') }}">Add User</a>
+                </button>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">

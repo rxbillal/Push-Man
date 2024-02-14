@@ -35,15 +35,23 @@ use App\Http\Controllers\Auth\LoginRegisterController;
     // Main Code
 
     Route::get('home',                          [MachineController::class, 'index'])->name('machine.home');
-    Route::get('/test-sound',                   [MachineController::class, 'test_sound'])->name('machine.testsound');
-    Route::get('/device-information',           [MachineController::class, 'device_information'])->name('machine.deviceinformation');
-    Route::get('/device-data',                  [MachineController::class, 'device_data'])->name('machine.devicedata');
-    Route::get('/device-data/clear-attendance', [MachineController::class, 'device_data_clear_attendance'])->name('machine.devicedata.clear.attendance');
+
+    // DEVICE SETTING
     Route::get('/device-restart',               [MachineController::class, 'device_restart'])->name('machine.devicerestart');
     Route::get('/device-shutdown',              [MachineController::class, 'device_shutdown'])->name('machine.deviceshutdown');
     Route::get('/device-sleep',                 [MachineController::class, 'device_sleep'])->name('machine.devicesleep');
+    Route::get('/test-sound',                   [MachineController::class, 'test_sound'])->name('machine.testsound');
     Route::get('/device-resume',                [MachineController::class, 'device_resume'])->name('machine.deviceresume');
     Route::get('/device-settime',               [MachineController::class, 'device_settime'])->name('machine.devicesettime');
+
+     // DEVICE DATA
+    Route::get('/device-add',                   [MachineController::class, 'device_add'])->name('machine.add');
+    Route::get('/device-information',           [MachineController::class, 'device_information'])->name('machine.deviceinformation');
+    Route::get('/device-data',                  [MachineController::class, 'device_data'])->name('machine.devicedata');
+    Route::get('/device-data/clear-attendance', [MachineController::class, 'device_data_clear_attendance'])->name('machine.devicedata.clear.attendance');
+
+    // integration
+    Route::get('/integration-add',              [MachineController::class, 'integration_add'])->name('integration.add');
 
     Route::post('/device-setip',                [MachineController::class, 'device_setip'])->name('machine.devicesetip');
     Route::get('/device-adduser',               [MachineController::class, 'device_adduser'])->name('machine.deviceadduser');

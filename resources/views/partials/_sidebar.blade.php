@@ -18,9 +18,9 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Devices</a>
                 <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('/device-add') }}" class="dropdown-item">Device</a>
+                    <a href="{{ url('/integration-add') }}" class="dropdown-item">Intregation</a>
                     <a href="{{ url('/device-information') }}" class="dropdown-item">Information</a>
-                    <a href="typography.html" class="dropdown-item">Typography</a>
-                    <a href="element.html" class="dropdown-item">Other Elements</a>
                 </div>
             </div>
             <div class="nav-item dropdown">

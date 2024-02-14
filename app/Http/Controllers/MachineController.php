@@ -44,6 +44,18 @@ class MachineController extends Controller
         return redirect()->back()->with('success_message','Playing sound on device.');
     }
 
+    public function device_add(){
+
+        $deviceip = $this->device_ip();
+        return view('dashboard.device-add',compact('deviceip'));
+    }
+
+    public function integration_add(){
+
+        $deviceip = $this->device_ip();
+        return view('dashboard.integration-add',compact('deviceip'));
+    }
+
     public function device_information(){
 
         $data['deviceip'] = $this->device_ip();
@@ -115,6 +127,8 @@ class MachineController extends Controller
         $deviceip = $this->device_ip();
         return view('dashboard.device-adduser',compact('deviceip'));
     }
+
+
 
     public function device_setuser(Request $request)
     {

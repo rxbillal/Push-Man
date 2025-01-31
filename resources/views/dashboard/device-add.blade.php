@@ -21,6 +21,10 @@
                         <label for="deviceIP" class="form-label">Device IP</label>
                         <input type="text" name="device_ip" class="form-control" id="deviceIP">
                     </div>
+                    <div class="mb-3">
+                        <label for="deviceIP" class="form-label">Port</label>
+                        <input type="text" name="device_port" class="form-control" id="devicePort">
+                    </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>

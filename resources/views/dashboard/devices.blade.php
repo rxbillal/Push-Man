@@ -23,7 +23,8 @@
                             <th scope="col"><input class="form-check-input" type="checkbox"></th>
                             <th scope="col">Device Info</th>
                             <th scope="col">IP</th>
-                            <th style="width: 15%" scope="col">Action</th>
+                            <th scope="col">PORT</th>
+                            {{-- <th style="width: 15%" scope="col">Action</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +33,8 @@
                             <td><input class="form-check-input" type="checkbox"></td>
                             <td>{{ $device->identifier }}</td>
                             <td>{{ $device->device_ip }}</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Action</a></td>
+                            <td>{{ $device->device_port }}</td>
+                            {{-- <td><a class="btn btn-sm btn-primary" href="">Action</a></td> --}}
                         </tr>
                         @endforeach
                     </tbody>

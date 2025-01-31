@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 //                          AUTH ROUTE
 //--------------------------------------------------------------------------
     Route::controller(LoginRegisterController::class)->group(function() {
-        Route::get('/register', 'register')->name('register'); // No Need
+        // Route::get('/register', 'register')->name('register'); // No Need
         Route::post('/store', 'store')->name('store');
         Route::get('/login', 'login')->name('login');
         Route::post('/authenticate', 'authenticate')->name('authenticate');
@@ -21,12 +21,6 @@ use App\Http\Controllers\Auth\LoginRegisterController;
     Route::get('/', function () {
         return view('welcome');
     });
-
-
-
-
-
-
 
 
 
@@ -66,6 +60,15 @@ use App\Http\Controllers\Auth\LoginRegisterController;
     Route::get('/device-removeuser-all',        [MachineController::class, 'device_removeuser_all'])->name('machine.deviceremoveuserall');
     Route::get('/device-removeuser-single/{id}',[MachineController::class, 'device_removeuser_single'])->name('machine.deviceremoveusersingle');
     Route::get('/device-viewuser-single/[id]',  [MachineController::class, 'device_viewuser_single'])->name('machine.deviceviewusersingle');
+
+
+
+    // Data Push Route
+
+    Route::get('/setting',                      [DevicesController::class, 'setting'])->name('setting');
+    Route::get('/addSetting',                   [DevicesController::class, 'addSetting'])->name('add.setting');
+    Route::post('/SettingConfig',                   [DevicesController::class, 'SettingConfig'])->name('SettingConfig');
+
 
     Route::get('home', function () {
         return view('device.welcome');

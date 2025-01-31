@@ -15,9 +15,9 @@ class MachineController extends Controller
         }
         else
         {
-            session()->put('dip', '103.79.183.44');
+            session()->put('dip', getDeviceIP());
 
-            $deviceip = '103.79.183.44';
+            $deviceip = getDeviceIP();
         }
 
         return $deviceip;
@@ -37,34 +37,12 @@ class MachineController extends Controller
     public function test_sound()
     {
         $deviceip = $this->device_ip();
-        $zk = new ZKTeco($deviceip,2256);
+        $zk = new ZKTeco($deviceip,getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $zk->testVoice();
         return redirect()->back()->with('success_message','Playing sound on device.');
     }
-
-    // public function devices(){
-
-    //     $deviceip = $this->device_ip();
-    //     return view('dashboard.devices',compact('deviceip'));
-    // }
-
-    // public function device_add(Request $request){
-
-    //     $deviceip = $this->device_ip();
-
-    //     return view('dashboard.device-add',compact('deviceip'));
-    // }
-
-    // public function devicesAdd(Request $request){
-
-    //     return $request->all();
-
-    //     $deviceip = $this->device_ip();
-
-    //     return view('dashboard.device-add',compact('deviceip'));
-    // }
 
     public function integration_add(){
 
@@ -75,7 +53,7 @@ class MachineController extends Controller
     public function device_information(){
 
         $data['deviceip'] = $this->device_ip();
-        $zk = new ZKTeco($data['deviceip'],2256);
+        $zk = new ZKTeco($data['deviceip'],getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $data['deviceVersion']      = $zk->version();
@@ -95,7 +73,7 @@ class MachineController extends Controller
     public function device_data()
     {
         $data['deviceip'] = $this->device_ip();
-        $zk = new ZKTeco($data['deviceip'],2256);
+        $zk = new ZKTeco($data['deviceip'],getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $data['users'] = $zk->getUser();
@@ -106,7 +84,7 @@ class MachineController extends Controller
     public function device_attendance()
     {
         $data['deviceip'] = $this->device_ip();
-        $zk = new ZKTeco($data['deviceip'],2256);
+        $zk = new ZKTeco($data['deviceip'],getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $data['users'] = $zk->getUser();
@@ -119,7 +97,7 @@ class MachineController extends Controller
     {
         $deviceip = $this->device_ip();
 
-        $zk = new ZKTeco($deviceip,2256);
+        $zk = new ZKTeco($deviceip,getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $zk->clearAttendance();
@@ -131,7 +109,7 @@ class MachineController extends Controller
     {
         $deviceip = $this->device_ip();
 
-        $zk = new ZKTeco($deviceip,2256);
+        $zk = new ZKTeco($deviceip,getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $zk->restart();
@@ -143,7 +121,7 @@ class MachineController extends Controller
     {
         $deviceip = $this->device_ip();
 
-        $zk = new ZKTeco($deviceip,2256);
+        $zk = new ZKTeco($deviceip,getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $zk->shutdown();
@@ -169,7 +147,7 @@ class MachineController extends Controller
        $password = $request->password;
        $cardno = $request->cardno;
        //dd($request->role);
-       $zk = new ZKTeco($deviceip,2256);
+       $zk = new ZKTeco($deviceip,getDevicePort());
        $zk->connect();
        $zk->disableDevice();
        $zk->setUser($uid , $userid , $name , $role , $password , $cardno);
@@ -180,7 +158,7 @@ class MachineController extends Controller
     public function device_removeuser_single($uid)
     {
         $deviceip = $this->device_ip();
-        $zk = new ZKTeco($deviceip,2256);
+        $zk = new ZKTeco($deviceip,getDevicePort());
         $zk->connect();
         $zk->disableDevice();
         $zk->removeUser($uid);
@@ -198,7 +176,7 @@ class MachineController extends Controller
         $password = $request->password;
         $cardno = $request->cardno;
 
-        $zk = new ZKTeco($deviceip,2256);
+        $zk = new ZKTeco($deviceip,getDevicePort());
         $zk->connect();
         $userfingerprints=$zk->getFingerprint($request->uid);
 

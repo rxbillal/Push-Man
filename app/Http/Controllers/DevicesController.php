@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DeviceInfo;
+use App\Models\Integration;
 
 class DevicesController extends Controller
 {
@@ -17,9 +18,9 @@ class DevicesController extends Controller
         }
         else
         {
-            session()->put('dip', '103.79.183.44');
+            session()->put('dip', getDeviceIP());
 
-            $deviceip = '103.79.183.44';
+            $deviceip = getDeviceIP();
         }
 
         return $deviceip;
@@ -42,17 +43,62 @@ class DevicesController extends Controller
         return view('dashboard.device-add',compact('deviceip'));
     }
 
+
     public function devicesAdd(Request $request){
 
 
         $deviceip = $this->device_ip();
 
-        DeviceInfo::create([
-            'identifier' => $request->identifier,
-            'device_ip' =>$request->device_ip
-        ]);
-
-
+        DeviceInfo::updateOrCreate(
+                ['id' => 1],
+                [
+                    'identifier' => $request->identifier,
+                    'device_ip' => $request->device_ip,
+                    'device_port' => $request->device_port,
+                ]
+            );
         return redirect()->route('devices')->with('success_message','Device Add Successful.',compact('deviceip'));
     }
+
+
+    public function setting(){
+
+        // $deviceip = $this->device_ip();
+
+        $devices = Integration::get()->all();
+
+        return view('dashboard.setting',compact('devices'));
+    }
+
+
+
+    public function addSetting(){
+
+        // $deviceip = $this->device_ip();
+
+        $devices = Integration::get()->all();
+
+        return view('dashboard.add_setting',compact('devices'));
+    }
+
+
+
+    public function SettingConfig(Request $request)
+    {
+        Integration::updateOrCreate(
+            ['id' => 1],
+            [
+                'name' => $request->name,
+                'device_id' => $request->device_id,
+                'base_url' => $request->base_url,
+                'api_url' => $request->api_url,
+                'api_key' => $request->api_key,
+                'push_key' => $request->push_key,
+            ]
+        );
+
+        return redirect()->route('setting')->with('success_message', 'Add Or Update Successful.');
+    }
+
+
 }

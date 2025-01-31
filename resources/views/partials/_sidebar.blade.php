@@ -31,6 +31,15 @@
                     {{-- <a href="{{ url('/device-attendance') }}" class="dropdown-item">Other Elements</a> --}}
                 </div>
             </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-table me-2"></i>Apis</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('/setting') }}" class="dropdown-item">Setting</a>
+                    <a href="{{ url('/device-adduser') }}" class="dropdown-item">Put Data</a>
+                    {{-- <a href="{{ url('/device-attendance') }}" class="dropdown-item">Other Elements</a> --}}
+                </div>
+            </div>
             <a href="{{ url('/device-attendance') }}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Attendance</a>
         </div>
     </nav>

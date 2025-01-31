@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\DevicesController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 
 //--------------------------------------------------------------------------
@@ -45,10 +46,16 @@ use App\Http\Controllers\Auth\LoginRegisterController;
     Route::get('/device-settime',               [MachineController::class, 'device_settime'])->name('machine.devicesettime');
 
      // DEVICE DATA
-    Route::get('/device-add',                   [MachineController::class, 'device_add'])->name('machine.add');
+
     Route::get('/device-information',           [MachineController::class, 'device_information'])->name('machine.deviceinformation');
     Route::get('/device-data',                  [MachineController::class, 'device_data'])->name('machine.devicedata');
+    Route::get('/device-attendance',            [MachineController::class, 'device_attendance'])->name('machine.attendance');
     Route::get('/device-data/clear-attendance', [MachineController::class, 'device_data_clear_attendance'])->name('machine.devicedata.clear.attendance');
+
+
+    Route::get('/devices',                      [DevicesController::class, 'devices'])->name('devices');
+    Route::get('/device_add',                   [DevicesController::class, 'device_add'])->name('device_add');
+    Route::post('/devices_Add',                 [DevicesController::class, 'devicesAdd'])->name('machine.device_add');
 
     // integration
     Route::get('/integration-add',              [MachineController::class, 'integration_add'])->name('integration.add');

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\DeviceInfo;
 use App\Models\Integration;
 use App\Models\User;
+use Rats\Zkteco\Lib\ZKTeco;
+use Illuminate\Support\Facades\Http;
 
 class DevicesController extends Controller
 {
@@ -119,9 +121,55 @@ class DevicesController extends Controller
 
         // $deviceip = $this->device_ip();
 
-        $devices = Integration::get()->all();
+        $data['devices'] = Integration::get()->all();
 
-        return view('dashboard.push_setup',compact('devices'));
+
+        $data['deviceip'] = $this->device_ip();
+        $zk = new ZKTeco($data['deviceip'],getDevicePort());
+        $zk->connect();
+        $zk->disableDevice();
+        $data['users'] = $zk->getUser();
+        $data['attendaces'] = $zk->getAttendance();
+
+        return view('dashboard.push_setup',$data);
     }
+
+
+    public function Push()
+    {
+        $data['deviceip'] = $this->device_ip();
+        $zk = new ZKTeco($data['deviceip'], getDevicePort());
+        $zk->connect();
+
+        $attendances = $zk->getAttendance();
+        $formattedData = [];
+
+        foreach ($attendances as $attendance) {
+            $formattedData[] = [
+                'finger_print_id' => $attendance['id'],
+                'identifier' => (string) $attendance['id'],
+                'log_time' => $attendance['timestamp'],
+            ];
+        }
+
+        $payload = [
+            'push_key' => getIntPushKey(),
+            'data' => $formattedData
+        ];
+
+        // Push the data to the external API
+        $response = Http::post(getIntApiUrl(), $payload);
+
+        // Return both local response and API response
+        return response()->json([
+            'status' => true,
+            'message' => 'Attendance data fetched and pushed successfully',
+            'local_data' => $payload,
+            'api_response' => $response->json(),
+        ]);
+    }
+
+
+
 
 }

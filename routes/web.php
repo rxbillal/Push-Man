@@ -5,6 +5,7 @@ use App\Http\Controllers\MachineController;
 use App\Http\Controllers\DevicesController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 
+
 //--------------------------------------------------------------------------
 //                          AUTH ROUTE
 //--------------------------------------------------------------------------
@@ -73,6 +74,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
     Route::post('/SettingConfig',                   [DevicesController::class, 'SettingConfig'])->name('SettingConfig');
 
     Route::get('/PushSetting',                      [DevicesController::class, 'PushSetting'])->name('PushSetting');
+    Route::get('/Push',                             [DevicesController::class, 'Push'])->name('Push');
     // Route::get('/addSetting',                   [DevicesController::class, 'addSetting'])->name('add.setting');
     // Route::post('/SettingConfig',                   [DevicesController::class, 'SettingConfig'])->name('SettingConfig');
 

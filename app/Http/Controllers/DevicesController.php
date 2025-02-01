@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DeviceInfo;
 use App\Models\Integration;
+use App\Models\User;
 
 class DevicesController extends Controller
 {
@@ -24,6 +25,17 @@ class DevicesController extends Controller
         }
 
         return $deviceip;
+    }
+
+
+
+    //--------------------------------------------------------------------------
+    //                          PROFILE METHOD
+    //--------------------------------------------------------------------------
+    public function profile(){
+
+        $user = User::find(1)->first();
+        return view('dashboard.profile',compact('user'));
     }
 
 
@@ -100,5 +112,16 @@ class DevicesController extends Controller
         return redirect()->route('setting')->with('success_message', 'Add Or Update Successful.');
     }
 
+
+
+
+    public function PushSetting(){
+
+        // $deviceip = $this->device_ip();
+
+        $devices = Integration::get()->all();
+
+        return view('dashboard.push_setup',compact('devices'));
+    }
 
 }

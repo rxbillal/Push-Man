@@ -17,9 +17,12 @@ use App\Http\Controllers\Auth\LoginRegisterController;
         Route::post('/logout', 'logout')->name('logout');
     });
 
+    // Route::get('/', function () {
+    //     return route('welcome');
+    // });
 
     Route::get('/', function () {
-        return view('welcome');
+        return redirect()->route('login');
     });
 
 
@@ -30,6 +33,8 @@ use App\Http\Controllers\Auth\LoginRegisterController;
     // Main Code
 
     Route::get('home',                          [MachineController::class, 'index'])->name('machine.home');
+    Route::get('/profile',                      [DevicesController::class, 'profile'])->name('profile');
+
 
     // DEVICE SETTING
     Route::get('/device-restart',               [MachineController::class, 'device_restart'])->name('machine.devicerestart');
@@ -40,7 +45,6 @@ use App\Http\Controllers\Auth\LoginRegisterController;
     Route::get('/device-settime',               [MachineController::class, 'device_settime'])->name('machine.devicesettime');
 
      // DEVICE DATA
-
     Route::get('/device-information',           [MachineController::class, 'device_information'])->name('machine.deviceinformation');
     Route::get('/device-data',                  [MachineController::class, 'device_data'])->name('machine.devicedata');
     Route::get('/device-attendance',            [MachineController::class, 'device_attendance'])->name('machine.attendance');
@@ -64,13 +68,11 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 
 
     // Data Push Route
-
     Route::get('/setting',                      [DevicesController::class, 'setting'])->name('setting');
     Route::get('/addSetting',                   [DevicesController::class, 'addSetting'])->name('add.setting');
     Route::post('/SettingConfig',                   [DevicesController::class, 'SettingConfig'])->name('SettingConfig');
 
-
-    Route::get('home', function () {
-        return view('device.welcome');
-    });
+    Route::get('/PushSetting',                      [DevicesController::class, 'PushSetting'])->name('PushSetting');
+    // Route::get('/addSetting',                   [DevicesController::class, 'addSetting'])->name('add.setting');
+    // Route::post('/SettingConfig',                   [DevicesController::class, 'SettingConfig'])->name('SettingConfig');
 

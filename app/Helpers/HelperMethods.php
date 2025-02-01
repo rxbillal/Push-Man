@@ -3,9 +3,7 @@
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use App\Models\DeviceInfo;
-
-
-
+use App\Models\Integration;
 
 
 //---------------------------------------------------//
@@ -59,6 +57,56 @@ function getDevice(){
 }
 
 
+
+
+//---------------------------------------------------//
+//                GET DevicePort                     //
+//---------------------------------------------------//
+function getIntDeviceID(){
+
+    return optional(DeviceInfo::where('id', 1)->select('device_port')->first())->device_port;
+
+}
+
+
+//---------------------------------------------------//
+//            GET Integration BaseUrl                //
+//---------------------------------------------------//
+function getIntBaseUrl(){
+
+    return optional(Integration::where('id', 1)->select('base_url')->first())->base_url;
+
+}
+
+
+//---------------------------------------------------//
+//              GET Integration ApiUrl               //
+//---------------------------------------------------//
+function getIntApiUrl(){
+
+    return optional(Integration::where('id', 1)->select('api_url')->first())->api_url;
+
+}
+
+
+//---------------------------------------------------//
+//             GET Integration ApiKey                //
+//---------------------------------------------------//
+function getIntApiKey(){
+
+    return optional(Integration::where('id', 1)->select('api_key')->first())->api_key;
+
+}
+
+
+//---------------------------------------------------//
+//              GET Integration PushKey              //
+//---------------------------------------------------//
+function getIntPushKey(){
+
+    return optional(Integration::where('id', 1)->select('push_key')->first())->push_key;
+
+}
 
 
 

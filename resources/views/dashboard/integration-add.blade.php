@@ -58,10 +58,12 @@
 
                 <hr/>
                 <div class="flex items-center">
-                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('dashboard') }}" class="underline text-gray-900 dark:text-white">Test device : Testing IP({{ $deviceip ?? '' }})</a></div>
+                    <div class="ml-4 text-lg leading-7 font-extrabold underline text-red-700"
+                            style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: red;">
+                        <b>Device IP ({{ $deviceip ?? '' }})</b>
+                    </div>
                 </div>
 
-                {{ session('dip') }}
                 <div class="ml-12">
                     <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                         <a href="{{ route('machine.testsound') }}" class="btn btn-success btn-sm" style="margin: 5px">Test device sound</a>

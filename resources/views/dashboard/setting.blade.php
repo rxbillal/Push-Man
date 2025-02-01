@@ -78,7 +78,7 @@
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">All Users</h6>
+                <h6 class="mb-0">Api Setup</h6>
 
                 <button type="button" class="btn btn-primary rounded-pill m-2">
                     <a href="{{ url('addSetting') }}" style="color: white; text-decoration: none;">Add Setup</a>
